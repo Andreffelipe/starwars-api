@@ -1,0 +1,18 @@
+POST http://localhost:3000/api/v1/rule HTTP/1.1
+content-type: application/json
+
+{
+    "name": "read:allContent",
+    "description": "reading from the characters database and the rest associated"
+}
+
+###
+
+GET http://localhost:3000/api/v1/rule HTTP/1.1
+content-type: application/json
+x-api-key: ""
+
+###
+
+GET http://localhost:3000/api/v1/rule/b2df11a4-eb17-4e9e-af73-b394f8e559cc HTTP/1.1
+content-type: application/json

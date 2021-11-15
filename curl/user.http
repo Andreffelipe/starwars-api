@@ -1,0 +1,32 @@
+POST http://localhost:3000/api/v1/user HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Andre",
+    "roles_id":"d7a4754c-0260-48cd-aa27-1c0f25233f5c"
+}
+###
+
+POST http://localhost:3000/api/v1/user/find HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Andre"
+}
+
+###
+
+PUT http://localhost:3000/api/v1/user HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Andre"
+}
+
+###
+DELETE http://localhost:3000/api/v1/user HTTP/1.1
+content-type: application/json
+
+{
+  "id":"876733cb-e7ec-4bd4-825a-3791dfad9e6d"
+}

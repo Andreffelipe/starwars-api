@@ -1,0 +1,127 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Characters {
+  id          String   @id @default(uuid())
+  name        String   @unique @db.Char(25)
+  height      Int      @db.SmallInt
+  mass        Float
+  hair_color  String[]
+  skin_color  String[]
+  eye_color   String[]
+  birth_year  String   @db.Char(10)
+  gender      String   @db.Char(15)
+  homeworld   Planet   @relation(fields: [homeworldId], references: [id])
+  homeworldId String
+  species     Species  @relation(fields: [speciesId], references: [id])
+  speciesId   String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Planet {
+  id              String       @id @default(uuid())
+  name            String       @unique
+  rotation_period Int          @db.SmallInt
+  orbital_period  Int          @db.SmallInt
+  diameter        Int          @db.Integer
+  climate         String[]
+  gravity         String       @db.VarChar
+  terrain         String[]
+  surface_water   Float
+  population      Int
+  created_at      DateTime     @default(now())
+  updated_at      DateTime     @updatedAt
+  characters      Characters[]
+  species         Species[]
+}
+
+model Species {
+  id               String       @id @default(uuid())
+  name             String       @unique @db.Char(25)
+  classification   String       @db.Char(10)
+  designation      String       @db.Char(10)
+  average_height   Int          @db.SmallInt
+  skin_colors      String[]
+  hair_colors      String[]
+  eye_colors       String[]
+  average_lifespan Int          @db.Integer
+  language         String       @db.Char(15)
+  homeworld        Planet       @relation(fields: [homeworld_id], references: [id])
+  homeworld_id     String
+  created_at       DateTime     @default(now())
+  updated_at       DateTime     @updatedAt
+  characters       Characters[]
+}
+
+model Starships {
+  id                   String   @id @default(uuid())
+  name                 String   @unique @db.Char(30)
+  model                String   @db.Char(50)
+  manufacturer         String   @db.Char(70)
+  cost_in_credits      Int
+  length               Float
+  max_atmosphere_speed Int      @db.SmallInt
+  crew                 Int      @db.Integer
+  passengers           Int      @db.Integer
+  cargo_capacity       Int
+  consumables          String   @db.Char(10)
+  hyperdrive_rating    Float
+  MGLT                 Int      @db.SmallInt
+  starship_class       String   @db.Char(45)
+  created_at           DateTime @default(now())
+  updated_at           DateTime @updatedAt
+}
+
+model Vehicle {
+  id                   String   @id @default(uuid())
+  name                 String   @unique @db.Char(35)
+  model                String   @db.Char(45)
+  manufacturer         String   @db.Char(60)
+  cost_in_credits      Int
+  length               Float
+  max_atmosphere_speed Int      @db.Integer
+  crew                 Int      @db.SmallInt
+  passengers           Int      @db.SmallInt
+  cargo_capacity       Int
+  consumables          String   @db.Char(20)
+  vehicle_class        String   @db.Char(30)
+  created_at           DateTime @default(now())
+  updated_at           DateTime @updatedAt
+}
+
+model User {
+  id          String        @id @default(uuid())
+  username    String        @unique @db.Char(30)
+  api_key     String        @unique
+  permissions String[]
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @updatedAt
+  roles       UserOnRoles[]
+}
+
+model Roles {
+  id          String        @id @default(uuid())
+  name        String        @unique
+  description String        @unique
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @updatedAt
+  roles       UserOnRoles[]
+}
+
+model UserOnRoles {
+  roles      Roles    @relation(fields: [roles_id], references: [id], onDelete: Cascade)
+  roles_id   String
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id    String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@id([roles_id, user_id])
+}

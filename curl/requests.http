@@ -1,0 +1,20 @@
+POST http://localhost:3000/api/v1/graphql/crud
+Content-Type: application/json
+x-api-key: 1f9e1b64-00e0-40b3-a092-5ba87670539c
+Authorization: Bearer 1f9e1b64-00e0-40b3-a092-5ba87670539c
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createPlanet(name: "Yavin IV",
+    rotation_period: 24,
+    orbital_period: 4818,
+    diameter: 10200,
+    climate: ["temperate","tropical"],
+    gravity: "1 standard",
+    terrain: ["jungle","rainforests"],
+    surface_water: 8,
+    population: 1000) {
+    id
+    name
+  }
+}
