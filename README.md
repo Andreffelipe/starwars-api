@@ -47,7 +47,7 @@ com alguns consultas, certifique de ter o [plugin](https://marketplace.visualstu
 
 
 caso queira contribuir seria muito gratificante,
-deixe seu link do git aqui no final. Ate a proxima.
+deixe seu link do git aqui no final. Até a proxima.
 
 ### JOVENS JEDI
 
