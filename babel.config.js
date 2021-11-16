@@ -7,14 +7,14 @@ module.exports = {
         }
       }
     ],
-    '@babel/preset-typescript'
+    '@babel/preset-typescript',
+    "@babel/preset-flow"
   ],
   plugins: [
     'babel-plugin-transform-typescript-metadata',
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties"],
-    [
-      'module-resolver', {
+    ['module-resolver', {
         alias: {
           "@controllers": "./src/controllers",
           "@models": "./src/models",
