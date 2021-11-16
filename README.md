@@ -4,7 +4,7 @@ Bem vindo jovem jedi, pronto para uma jornada.
 
 Deixa eu te mostra o que temos aqui!
 
-Quai techs usadas
+Quais techs usadas
 * Docker
 * Postegres
 * Prisma
@@ -21,7 +21,7 @@ suba o banco de dados com esse comando
 sudo docker run --name some-postgres -e POSTGRES_PASSWORD=docker -e POSTGRES_USER=docker -e POSTGRES_DB=starwars -p 5432:5432 -d postgres
 ```
 
-certifique de ter a variavel de ambiente criada
+certifique de ter a variável de ambiente criada
 
 ```
 #.env
