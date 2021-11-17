@@ -1,8 +1,8 @@
 
 GET  http://localhost:3000/api/v1/graphql
 Content-Type: application/json
-x-api-key: bc790454-5207-4e64-96af-461ef58dbb9e
-Authorization: Bearer bc790454-5207-4e64-96af-461ef58dbb9e
+x-api-key: 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+Authorization: Bearer 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
 X-REQUEST-TYPE: GraphQL
 
 query {
@@ -15,12 +15,12 @@ query {
 
 GET http://localhost:3000/api/v1/graphql
 Content-Type: application/json
-x-api-key: bc790454-5207-4e64-96af-461ef58dbb9e
-Authorization: Bearer bc790454-5207-4e64-96af-461ef58dbb9e
+x-api-key: 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+Authorization: Bearer 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
 X-REQUEST-TYPE: GraphQL
 
 query {
-  onePlanets(id: "0ea6d8ff-2e39-44ca-bd52-ed12b4b349b7"){
+  onePlanet(id: "cdc9cef1-8930-4aee-938f-8610eb918e2c"){
     id
     name
   }

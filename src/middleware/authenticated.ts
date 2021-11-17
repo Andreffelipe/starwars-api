@@ -15,7 +15,6 @@ export const Authenticated = () => {
     const user = container.resolve(FindApiKeyUserService);
 
     const result = await user.execute(token);
-    console.log(result);
     if (!result || result instanceof Error) {
       return response.status(401).json({ error: 'not authorized' });
     }

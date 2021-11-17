@@ -1,7 +1,7 @@
 POST http://localhost:3000/api/v1/graphql/crud
 Content-Type: application/json
-x-api-key: 1f9e1b64-00e0-40b3-a092-5ba87670539c
-Authorization: Bearer 1f9e1b64-00e0-40b3-a092-5ba87670539c
+x-api-key: 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+Authorization: Bearer 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
 X-REQUEST-TYPE: GraphQL
 
 mutation {
@@ -14,6 +14,110 @@ mutation {
     terrain: ["jungle","rainforests"],
     surface_water: 8,
     population: 1000) {
+    id
+    name
+  }
+}
+
+###
+
+POST http://localhost:3000/api/v1/graphql/crud
+Content-Type: application/json
+x-api-key: 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+Authorization: Bearer 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createStarship(
+    name: "Executor",
+    model: "Executor-class star dreadnought",
+    manufacturer: "Kuat Drive Yards, Fondor Shipyards",
+    cost_in_credits: 1143350000,
+    length: 19000.0,
+    max_atmosphere_speed: 0,
+    crew: 279144,
+    passengers: 38000,
+    cargo_capacity: 250000000,
+    consumables: "6 years",
+    hyperdrive_rating: 2,
+    MGLT: 40,
+    starship_class: "Star dreadnought") {
+    id
+    name
+  }
+}
+
+###
+
+POST http://localhost:3000/api/v1/graphql/crud
+Content-Type: application/json
+x-api-key: 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+Authorization: Bearer 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createVehicle(
+    name: "Sand Crawler",
+    model: "Digger Crawler",
+    manufacturer: "Corellia Mining Corporation",
+    cost_in_credits: 150000,
+    length: 36.8,
+    max_atmosphere_speed: 30,
+    crew: 46,
+    passengers: 30,
+    cargo_capacity: 50000,
+    consumables: "2 months",
+    vehicle_class: "wheeled") {
+    id
+    name
+  }
+}
+
+###
+
+POST http://localhost:3000/api/v1/graphql/crud
+Content-Type: application/json
+x-api-key: 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+Authorization: Bearer 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createSpecie(
+    name: "Hutt",
+    classification: "gastropod",
+    designation: "sentient",
+    average_height: 300,
+    skin_colors: ["green"," brown"," tan"],
+    hair_colors: ["NA"],
+    eye_colors: ["yellow"," red"],
+    average_lifespan: 1000,
+    language: "Huttese",
+    homeworld: "cdc9cef1-8930-4aee-938f-8610eb918e2c") {
+    id
+    name
+  }
+}
+
+###
+
+POST http://localhost:3000/api/v1/graphql/crud
+Content-Type: application/json
+x-api-key: 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+Authorization: Bearer 1f31f58a-e3bc-4d55-82ad-eeed777ab6ee
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createCharacter(
+    name: "Luke Skywalker",
+    height: 172,
+    mass: 77.0,
+    hair_color: ["blond"],
+    skin_color: ["fair"],
+    eye_color: ["blue"],
+    birth_year: "19BBY",
+    gender: "male",
+    homeworld: "cdc9cef1-8930-4aee-938f-8610eb918e2c",
+    species: "a73c280a-838e-4b51-9a30-7bbb7ac5c4d0") {
     id
     name
   }

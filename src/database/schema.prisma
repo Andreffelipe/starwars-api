@@ -8,24 +8,24 @@ generator client {
 }
 
 model Characters {
-  id          String   @id @default(uuid())
-  name        String   @unique @db.Char(25)
-  height      Int      @db.SmallInt
-  mass        Float
-  hair_color  String[]
-  skin_color  String[]
-  eye_color   String[]
-  birth_year  String   @db.Char(10)
-  gender      String   @db.Char(15)
-  homeworld   Planet   @relation(fields: [homeworldId], references: [id])
-  homeworldId String
-  species     Species  @relation(fields: [speciesId], references: [id])
-  speciesId   String
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
+  id           String   @id @default(uuid())
+  name         String   @unique @db.Char(25)
+  height       Int      @db.SmallInt
+  mass         Float
+  hair_color   String[]
+  skin_color   String[]
+  eye_color    String[]
+  birth_year   String   @db.Char(10)
+  gender       String   @db.Char(15)
+  homeworld    Planets   @relation(fields: [homeworld_id], references: [id])
+  homeworld_id String
+  species      Species  @relation(fields: [species_id], references: [id])
+  species_id   String
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
 }
 
-model Planet {
+model Planets {
   id              String       @id @default(uuid())
   name            String       @unique
   rotation_period Int          @db.SmallInt
@@ -53,7 +53,7 @@ model Species {
   eye_colors       String[]
   average_lifespan Int          @db.Integer
   language         String       @db.Char(15)
-  homeworld        Planet       @relation(fields: [homeworld_id], references: [id])
+  homeworld        Planets       @relation(fields: [homeworld_id], references: [id])
   homeworld_id     String
   created_at       DateTime     @default(now())
   updated_at       DateTime     @updatedAt
@@ -79,7 +79,7 @@ model Starships {
   updated_at           DateTime @updatedAt
 }
 
-model Vehicle {
+model Vehicles {
   id                   String   @id @default(uuid())
   name                 String   @unique @db.Char(35)
   model                String   @db.Char(45)

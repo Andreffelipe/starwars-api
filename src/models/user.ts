@@ -4,12 +4,12 @@ export class User {
   id?: string;
   username: string;
   api_key: string;
-  roles: string[];
+  roles: string | string[];
   permissions: string[];
   constructor(name: string, roles: string) {
     this.api_key = uuid();
     this.username = name;
-    this.roles = [...roles];
+    this.roles = roles;
     this.permissions = ['USER'];
   }
 }

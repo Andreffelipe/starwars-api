@@ -1,10 +1,13 @@
-import { IRuleRepository } from '@interfaces/IRuleRepository';
+import { IRolesRepository } from '@interfaces/IRolesRepository';
 import { IUserRepository } from '@interfaces/IUserRepository';
-import { RuleRepository } from '@repository/ruleRepository';
+import { RolesRepository } from '@repository/roleRepository';
 import { UserRepository } from '@repository/userRepository';
 import { container } from 'tsyringe';
 
-container.registerSingleton<IUserRepository>('UserRepository', UserRepository);
-container.registerSingleton<IRuleRepository>('RuleRepository', RuleRepository);
+const userRepo = new UserRepository();
+const rolesRepo = new RolesRepository();
+
+container.registerInstance<IUserRepository>('UserRepository', userRepo);
+container.registerInstance<IRolesRepository>('RuleRepository', rolesRepo);
 
 export { container };

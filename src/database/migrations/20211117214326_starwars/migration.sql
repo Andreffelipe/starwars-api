@@ -9,8 +9,8 @@ CREATE TABLE "Characters" (
     "eye_color" TEXT[],
     "birth_year" CHAR(10) NOT NULL,
     "gender" CHAR(15) NOT NULL,
-    "homeworldId" TEXT NOT NULL,
-    "speciesId" TEXT NOT NULL,
+    "homeworld_id" TEXT NOT NULL,
+    "species_id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
@@ -18,7 +18,7 @@ CREATE TABLE "Characters" (
 );
 
 -- CreateTable
-CREATE TABLE "Planet" (
+CREATE TABLE "Planets" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "rotation_period" SMALLINT NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE "Planet" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Planet_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Planets_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -77,7 +77,7 @@ CREATE TABLE "Starships" (
 );
 
 -- CreateTable
-CREATE TABLE "Vehicle" (
+CREATE TABLE "Vehicles" (
     "id" TEXT NOT NULL,
     "name" CHAR(35) NOT NULL,
     "model" CHAR(45) NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE "Vehicle" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Vehicle_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Vehicles_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -133,7 +133,7 @@ CREATE TABLE "UserOnRoles" (
 CREATE UNIQUE INDEX "Characters_name_key" ON "Characters"("name");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Planet_name_key" ON "Planet"("name");
+CREATE UNIQUE INDEX "Planets_name_key" ON "Planets"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Species_name_key" ON "Species"("name");
@@ -142,7 +142,7 @@ CREATE UNIQUE INDEX "Species_name_key" ON "Species"("name");
 CREATE UNIQUE INDEX "Starships_name_key" ON "Starships"("name");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Vehicle_name_key" ON "Vehicle"("name");
+CREATE UNIQUE INDEX "Vehicles_name_key" ON "Vehicles"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
@@ -157,13 +157,13 @@ CREATE UNIQUE INDEX "Roles_name_key" ON "Roles"("name");
 CREATE UNIQUE INDEX "Roles_description_key" ON "Roles"("description");
 
 -- AddForeignKey
-ALTER TABLE "Characters" ADD CONSTRAINT "Characters_homeworldId_fkey" FOREIGN KEY ("homeworldId") REFERENCES "Planet"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Characters" ADD CONSTRAINT "Characters_homeworld_id_fkey" FOREIGN KEY ("homeworld_id") REFERENCES "Planets"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Characters" ADD CONSTRAINT "Characters_speciesId_fkey" FOREIGN KEY ("speciesId") REFERENCES "Species"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Characters" ADD CONSTRAINT "Characters_species_id_fkey" FOREIGN KEY ("species_id") REFERENCES "Species"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Species" ADD CONSTRAINT "Species_homeworld_id_fkey" FOREIGN KEY ("homeworld_id") REFERENCES "Planet"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Species" ADD CONSTRAINT "Species_homeworld_id_fkey" FOREIGN KEY ("homeworld_id") REFERENCES "Planets"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "UserOnRoles" ADD CONSTRAINT "UserOnRoles_roles_id_fkey" FOREIGN KEY ("roles_id") REFERENCES "Roles"("id") ON DELETE CASCADE ON UPDATE CASCADE;
