@@ -32,8 +32,8 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
-* Você instalou a versão mais recente de `< nodejs / yarn ou npm >`
-* Você ter  `<  docker ou postgres >`
+* Você instalou a versão mais recente de ` nodejs / yarn ou npm `
+* Você ter  ` docker ou postgres `
 
 
 ## 🚀 Usando starwars-api
